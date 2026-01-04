@@ -1,6 +1,7 @@
 from src.extract import extract_network
 from src.transform import (transform_network_data,transform_station_data,save_table)
 from src.schema import (NETWORK_FIELDS,STATION_METADATA_FIELDS,STATION_STATUS_FIELDS,)
+from src.visualize import plot_station_availability
 
 
 
@@ -15,6 +16,7 @@ def run():
     save_table(network_table, NETWORK_FIELDS, "network_metadata",network_id)
     save_table(station_meta, STATION_METADATA_FIELDS, "station_metadata",network_id)
     save_table(station_status, STATION_STATUS_FIELDS, "station_status",network_id)
+    plot_station_availability(network_id)
 
 if __name__ == "__main__":
     run()
